@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 ENV SRV1CV8_REPOSITORY /opt/1C/repository
 
 RUN mkdir /opt/dist && cd /opt/dist/ \
-	&& wget https://dl.dropboxusercontent.com/u/3197086/${DIST} --no-check-certificate \
+	&& wget http://http://casa.ru/${DIST} --no-check-certificate \
 	&& tar xzf ${DIST} && dpkg -i *.deb && rm -rf *
 	
 RUN mkdir -p /var/log/1c/dumps && chmod -R 777 /var/log/1c
