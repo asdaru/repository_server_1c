@@ -3,7 +3,7 @@
 FROM 32bit/debian
 MAINTAINER asda (Andrey Mamaev)
 
-ENV DIST deb32_8.3.9-1850.tar.gz 
+ENV DIST deb32_8.3.10-2580.tar.gz 
 
 
 RUN apt-get update && apt-get install -y \
