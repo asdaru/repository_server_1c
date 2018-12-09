@@ -1,7 +1,7 @@
 # Сервер хранилища 1С 8.3
 #
-FROM 32bit/debian
-MAINTAINER asda (Andrey Mamaev)
+FROM i386/debian:stretch-slim
+MAINTAINER asda.ru (Andrey Mamaev)
 
 ENV DIST deb32_8.3.10-2580.tar.gz 
 
@@ -25,4 +25,4 @@ RUN chmod 777 ${SRV1CV8_REPOSITORY}
 VOLUME ${SRV1CV8_REPOSITORY}
 
 EXPOSE 1542
-CMD ["/opt/1C/v8.3/i386/crserver","-d","/opt/1C/repository"]
+CMD ["/opt/1C/v8.3/i386/crserver","-d","${SRV1CV8_REPOSITORY}"]
