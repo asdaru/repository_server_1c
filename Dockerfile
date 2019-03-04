@@ -18,6 +18,8 @@ RUN mkdir /opt/dist && cd /opt/dist/ \
 	
 RUN mkdir -p /var/log/1c/dumps && chmod -R 777 /var/log/1c
 
+COPY run.sh /
+RUN chmod +x /run.sh
 RUN mkdir ${SRV1CV8_REPOSITORY}
 RUN chmod 777 ${SRV1CV8_REPOSITORY}
 
@@ -25,4 +27,4 @@ RUN chmod 777 ${SRV1CV8_REPOSITORY}
 VOLUME ${SRV1CV8_REPOSITORY}
 
 EXPOSE 1542
-CMD ["/opt/1C/v8.3/i386/crserver","-d","${SRV1CV8_REPOSITORY}"]
+CMD ["/run.sh"]
