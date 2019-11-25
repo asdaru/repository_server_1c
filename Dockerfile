@@ -3,7 +3,7 @@
 FROM i386/debian:stretch-slim
 MAINTAINER asda.ru (Andrey Mamaev)
 
-ENV DIST deb_8_3_16_1030.tar.gz 
+ENV DIST deb_8_3_16_1063.tar.gz 
 
 
 RUN apt-get update && apt-get install -y \
