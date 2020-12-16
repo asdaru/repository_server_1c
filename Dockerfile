@@ -1,13 +1,14 @@
 # Сервер хранилища 1С 8.3
 #
-FROM i386/debian:stretch-slim
+FROM debian:stretch-slim
 MAINTAINER asda.ru (Andrey Mamaev)
 
-ENV DIST deb_8_3_17_1851.tar.gz 
+ENV DIST deb64_8_3_17_1851.tar.gz 
 
 
 RUN apt-get update && apt-get install -y \
-	wget
+	wget \
+	&& rm -rf /var/lob/apt/lists/*
 
 
 ENV SRV1CV8_REPOSITORY /opt/1C/repository
