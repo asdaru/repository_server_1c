@@ -3,7 +3,7 @@
 FROM debian:stretch-slim
 MAINTAINER asda.ru (Andrey Mamaev)
 
-ENV DIST deb64_8_3_17_1851.tar.gz 
+ENV DIST deb64_8_3_17_1989.tar.gz 
 
 
 RUN apt-get update && apt-get install -y \
