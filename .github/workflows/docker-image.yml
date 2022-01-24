@@ -13,6 +13,9 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
+        name: Get the tag name
+        run: echo "TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
@@ -30,4 +33,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: asdaru/repository_server_1c:latest,asdaru/repository_server_1c:${{ github.event.release.tag_name }}
+          tags: asdaru/repository_server_1c:latest,asdaru/repository_server_1c:${{ env.TAG }}
