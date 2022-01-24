@@ -20,7 +20,7 @@ RUN mkdir -p /var/log/1c/dumps && chmod -R 777 /var/log/1c
 
 COPY run.sh /
 RUN chmod +x /run.sh
-RUN mkdir ${SRV1CV8_REPOSITORY}
+RUN mkdir -p ${SRV1CV8_REPOSITORY}
 RUN chmod 777 ${SRV1CV8_REPOSITORY}
 
 
