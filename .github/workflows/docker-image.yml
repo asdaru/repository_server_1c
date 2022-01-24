@@ -30,4 +30,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: asdaru/repository_server_1c:latest,asdaru/repository_server_1c:${{ steps.meta.outputs.tags }}
+          tags: asdaru/repository_server_1c:latest,asdaru/repository_server_1c:${GITHUB_REF/refs\/tags\//}
