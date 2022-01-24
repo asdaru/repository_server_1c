@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag repository_server_1c:${{ github.event.inputs.tag }}
+      run: docker build . --file Dockerfile --tag repository_server_1c:${{ steps.vars.outputs.tag }}
