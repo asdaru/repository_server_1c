@@ -2,7 +2,7 @@
 #
 FROM debian:stretch-slim
 
-ENV DIST server64_8_3_22_1750
+ENV DIST server64_8_3_22_2239
 
 
 RUN apt-get update && apt-get install -y \
