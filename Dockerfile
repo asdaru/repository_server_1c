@@ -1,6 +1,6 @@
 # Сервер хранилища 1С 8.3
 #
-FROM debian:stretch-slim
+FROM debian:stable-slim
 
 ENV DIST server64_8_3_22_2239
 
