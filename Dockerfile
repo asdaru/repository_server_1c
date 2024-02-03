@@ -22,8 +22,6 @@ RUN tar xzf /tmp/${DIST}.tar.gz -C /tmp && \
 	rm -rf /var/lib/apt/lists/*
 
 
-COPY run.sh /
-RUN chmod +x /run.sh
 RUN mkdir -p ${SRV1CV8_REPOSITORY}
 RUN chmod 777 ${SRV1CV8_REPOSITORY}
 
@@ -31,4 +29,4 @@ RUN chmod 777 ${SRV1CV8_REPOSITORY}
 VOLUME ${SRV1CV8_REPOSITORY}
 
 EXPOSE 1542
-CMD ["/run.sh"]
+CMD ["/opt/1cv8/x86_64/8.3.22.2239/crserver -d ${SRV1CV8_REPOSITORY}"]
