@@ -2,29 +2,29 @@
 #
 FROM debian:stable-slim
 
-ENV DIST=server64_8_3_22_2239
+ENV DIST=server64_8_3_24_1548.zip
 
 
 RUN apt-get update && apt-get install -y \
-	wget \
+	wget unzip \
 	&& rm -rf /var/lob/apt/lists/*
 
 
-RUN wget https://storage.yandexcloud.net/pridex.backup/distr/${DIST}.tar.gz -P /tmp --no-check-certificate | wc -l > /number
+RUN wget https://storage.yandexcloud.net/pridex.backup/distr/${DIST} -P /tmp --no-check-certificate | wc -l > /number
 
 
-RUN tar xzf /tmp/${DIST}.tar.gz -C /tmp && \
+RUN unzip /tmp/${DIST} -d /tmp && ls /tmp && \
 	/tmp/setup-full-*-x86_64.run --mode unattended --enable-components config_storage_server,ru && \
 	rm -rf /tmp/* && \
 	rm -rf /var/lib/apt/lists/*
 
 
-RUN mkdir -p /opt/1C/repository && \
+	RUN mkdir -p /opt/1C/repository && \
 	chmod 777 /opt/1C/repository && \
 	mkdir -p /var/log/1c/dumps
 
 
-VOLUME /opt/1C/repository
+	VOLUME /opt/1C/repository
 
 EXPOSE 1542
-CMD ["/opt/1cv8/x86_64/8.3.22.2239/crserver", "-d", "/opt/1C/repository"]
+CMD ["/opt/1cv8/x86_64/8.3.24.1548/crserver","-d","/opt/1C/repository"]
