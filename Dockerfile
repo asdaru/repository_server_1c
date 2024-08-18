@@ -2,7 +2,7 @@
 #
 FROM debian:stable-slim
 
-ENV DIST=server64_8_3_24_1548.zip
+ENV DIST=server64_8_3_24_1667.zip
 
 
 RUN apt-get update && apt-get install -y \
@@ -19,12 +19,12 @@ RUN unzip /tmp/${DIST} -d /tmp && ls /tmp && \
 	rm -rf /var/lib/apt/lists/*
 
 
-	RUN mkdir -p /opt/1C/repository && \
+RUN mkdir -p /opt/1C/repository && \
 	chmod 777 /opt/1C/repository && \
 	mkdir -p /var/log/1c/dumps
 
 
-	VOLUME /opt/1C/repository
+VOLUME /opt/1C/repository
 
 EXPOSE 1542
-CMD ["/opt/1cv8/x86_64/8.3.24.1548/crserver","-d","/opt/1C/repository"]
+CMD ["/opt/1cv8/x86_64/8.3.24.1667/crserver","-d","/opt/1C/repository"]
