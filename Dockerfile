@@ -10,10 +10,8 @@ RUN apt-get update && apt-get install -y \
 	&& rm -rf /var/lob/apt/lists/*
 
 
-RUN wget https://storage.yandexcloud.net/pridex.backup/distr/${DIST} -P /tmp --no-check-certificate | wc -l > /number
-
-
-RUN unzip /tmp/${DIST} -d /tmp && ls /tmp && \
+RUN wget https://storage.yandexcloud.net/pridex.backup/distr/${DIST} -P /tmp --no-check-certificate && \
+        unzip /tmp/${DIST} -d /tmp && \
 	/tmp/setup-full-*-x86_64.run --mode unattended --enable-components config_storage_server,ru && \
 	rm -rf /tmp/* && \
 	rm -rf /var/lib/apt/lists/*
