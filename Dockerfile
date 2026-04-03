@@ -2,7 +2,7 @@
 #
 FROM debian:stable-slim
 
-ENV DIST=server64_8_3_27_1719.zip
+ENV DIST=server64_8_3_27_2074.zip
 
 
 RUN apt-get update && apt-get install -y \
@@ -25,4 +25,4 @@ RUN mkdir -p /opt/1C/repository && \
 VOLUME /opt/1C/repository
 
 EXPOSE 1542
-CMD ["/opt/1cv8/x86_64/8.3.27.1719/crserver","-d","/opt/1C/repository"]
+CMD ["/opt/1cv8/x86_64/8.3.27.2074/crserver","-d","/opt/1C/repository"]
